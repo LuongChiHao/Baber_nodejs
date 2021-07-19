@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-sm navbar-dark fixed-top">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#">
+        <img src="images/logo-footer.png" alt="logo" style="width:90%;">
+    </a>
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="#"> <span class="fas fa-calendar"></span> Lịch hẹn</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><span class="fas fa-id-card"></span> Khách hàng</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><span class="fas fa-donate"></span> Thống kê</a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="#"><span class="fas fa-folder-open"></span> Quản lý tóc</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/logout"><span class="fas fa-user-secret"></span> Đăng xuất</a>
+        </li>
+    </ul>
+
+
+</nav>
+
+<div class="container-fluid mt-5 pt-5">
+    <h1 class="text-light text-center pt-5 pb-5">Products Manager</h1>
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+
+        <div class="col-md-8">
+            <table class="table table-dark table-striped table-hover">
+                 <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>name</th>
+                        <th>cost</th>
+                        <th>date</th>
+                        <th>brand</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    {{#each products}}
+                    <tr>
+                        <td>{{this.id}}</td>
+                        <td>{{this.name}}</td>
+                        <td>{{this.cost}}</td>
+                        <td class="center">{{this.date}}</td>
+                        <td>{{this.brand}}</td>
+                        <td><a href="/products/edit/{{this.id}}" class="btn btn-primary">Edit</a></td>
+                        <td><a href="/products/delete/{{this.id}}" class="btn btn-primary">Delete</a></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-2"></div>
+
+    </div>
+</div>
+
+<!-- Script table sp -->
+<script>
+  $(document).ready(function () {
+    $("#myInput").on("keyup", function () {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+</script>
+<!-- End table sp -->
