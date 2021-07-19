@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var studentsRouter  = require('./routes/students');
+
 var productsRouter = require('./routes/products');
 require('dotenv').config();
 var session = require('express-session');
@@ -38,8 +38,7 @@ app.use('/', indexRouter);
 // http://localhost:3000/products
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
-// http://localhost:3000/students
-app.use('/students', studentsRouter);
+
 
 
 
