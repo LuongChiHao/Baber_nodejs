@@ -1,0 +1,214 @@
+<nav class="navbar navbar-expand-sm navbar-dark">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="/trangchu">
+        <img src="./images/logo-footer.png" alt="logo" style="width:90%;">
+    </a>
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="/lichhen"> <span class="fas fa-calendar"></span> Lịch hẹn</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/khachhang"><span class="fas fa-id-card"></span> Khách hàng</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/thongke"><span class="fas fa-donate"></span> Thống kê</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/toc"><span class="fas fa-folder-open"></span> Quản lý tóc</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/products"><span class="fas fa-paperclip"></span> Quản lý sản phẩm</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/logout"><span class="fas fa-user-secret"></span> Đăng xuất</a>
+        </li>
+    </ul>
+
+
+</nav>
+<div class="lichhen">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h3 class="text-center text-light my-5">Danh sách lịch hẹn</h3>
+                <div class="table-responsive">
+                    <table class="table table-dark table-striped table-hover">
+                        <input class="form-control" id="myInputLH" type="text" placeholder="Search..">
+                        <thead>
+                            <tr>
+                                <th>Mã lịch hẹn</th>
+                                <th>Ngày đặt</th>
+                                <th>Ngày kết thúc</th>
+                                <th>Mã tóc</th>
+                                <th>User name</th>
+                                <th>Giới tính</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền (VND)</th>
+                                <th>Tình trạng</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myTableLH">
+                            <tr data-h data-toggle="modal" data-target="#XoaLHModal">
+                                <td>01072101</td>
+                                <td>01/07/2021</td>
+                                <td>03/07/2021</td>
+                                <td>La01M</td>
+                                <td>lylienkiet</td>
+                                <td>Nam</td>
+                                <td>2</td>
+                                <td>200,000</td>
+                                <td>Hoành thành</td>
+                            </tr>
+
+                            <tr data-toggle="modal" data-target="#XoaLHModal">
+                                <td>01072101</td>
+                                <td>01/07/2021</td>
+                                <td>03/07/2021</td>
+                                <td>La01M</td>
+                                <td>lylienkiet</td>
+                                <td>Nam</td>
+                                <td>2</td>
+                                <td>200,000</td>
+                                <td>Hoành thành</td>
+                            </tr>
+
+                            <tr data-toggle="modal" data-target="#XoaLHModal">
+                                <td>01072101</td>
+                                <td>01/07/2021</td>
+                                <td>03/07/2021</td>
+                                <td>La01M</td>
+                                <td>lylienkiet</td>
+                                <td>Nam</td>
+                                <td>2</td>
+                                <td>200,000</td>
+                                <td>Hoành thành</td>
+
+                            </tr>
+
+
+                            <tr data-toggle="modal" data-target="#XoaLHModal">
+                                <td>01072101</td>
+                                <td>01/07/2021</td>
+                                <td>03/07/2021</td>
+                                <td>La01M</td>
+                                <td>lylienkiet</td>
+                                <td>Nam</td>
+                                <td>2</td>
+                                <td>200,000</td>
+                                <td>Hoành thành</td>
+
+                            </tr>
+
+                            <tr data-toggle="modal" data-target="#XoaLHModal">
+                                <td>01072101</td>
+                                <td>01/07/2021</td>
+                                <td>03/07/2021</td>
+                                <td>La01M</td>
+                                <td>lylienkiet</td>
+                                <td>Nam</td>
+                                <td>2</td>
+                                <td>200,000</td>
+                                <td>Hoành thành</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Script table khách hàng -->
+<script>
+    $(document).ready(function () {
+        $("#myInputLH").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTableLH tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+<!-- End table khách hàng -->
+
+<!-- Modal xoas -->
+<div class="modal fade" id="XoaLHModal">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background: rgba(77, 76, 76, 0.8);border: 1px solid white;">
+
+            <!-- Modal header -->
+            <div class="modal-header">
+                <h3 class="text-light mb-3">Xóa khách hàng này?</h3>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form action="/action_page.php" class="p-4">
+
+                    <div class="form-group">
+                        <label class="text-light" for="matoc">Mã tóc: </label>
+                        <select name="matoc" id="matoc" class="custom-select">
+                            <option value="" selected>La01M</option>
+                            <option value="">Mo01M</option>
+                            <option value="">La02F</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text-light" for="">Username: </label>
+                        <select name="username" id="username" class="custom-select">
+                            <option value="" selected>lylienkiet</option>
+                            <option value="" selected>lylienkiet</option>
+                            <option value="" selected>lylienkiet</option>
+                            <option value="" selected>lylienkiet</option>
+                            <option value="" selected>lylienkiet</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text-light" for="gioitinh">Giới tính: </label>
+                        <select name="gioitinh" id="gioitinh" class="custom-select">
+                            <option value="" selected>Nam</option>
+                            <option value="">Nữ</option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text-light" for="soluong">Số lượng: </label>
+                        <input type="text" class="form-control" id="soluong" placeholder="Số lượng" value="2">
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="trangthai">
+                            <label class="custom-control-label text-light" for="trangthai">Đã hoàn thành</label>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btnlichhen" data-dismiss="modal">Sửa</button>
+                <button type="button" class="btn btn-danger btnlichhen" data-dismiss="modal">Xóa</button>
+                <button type="button" class="btn btn-primary btnlichhen" data-dismiss="modal">Không</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Modal xoas -->

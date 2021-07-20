@@ -27,6 +27,14 @@ nav
 }
 
 /*  */
+.index form
+{
+  border:  none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: -1px -1px 60px 10px black;
+  background: rgba(0, 0, 0, 0.6);
+}
 
 .index h1
 {
@@ -79,14 +87,20 @@ nav
   background: rgba(0, 0, 0, 0.6);
 }
 
-/* ProductDetail */
-form
+/* Trang chủ */
+
+.trangchu label
+{
+    color: white;
+}
+
+.trangchu form
 {
    background: rgba(0, 0, 0, 0.5);
    border: 1px solid white;
 }
 
-.form-control 
+.trangchu .form-control 
 {
     background: rgba(0, 0, 0, 0.7);
     height: 40px;
@@ -96,7 +110,31 @@ form
     
 }
 
-.btn
+.trangchu #cardtitle
+{
+    font-size: 40px;
+    text-align: center;
+}
+
+.btn-trangchu
+{
+  background:rgba(0, 0, 0, 0.7);
+  border: none;
+  width: 100%;
+}
+
+/* Products */
+.products .form-control 
+{
+    background: rgba(0, 0, 0, 0.7);
+    height: 40px;
+    padding: 19px;
+    font-size: 22px;
+    color:white;
+    
+}
+
+.btn-products
 {
     background: transparent;
     font-size: 22px;
@@ -105,9 +143,123 @@ form
     width: 100%;
 }
 
-.btn-dark
+
+/* products details */
+.productdetails .form-control 
 {
-    font-size: 15px;
-    color: black;
-    border: 1px solid black;
+    background: rgba(0, 0, 0, 0.7);
+    height: 40px;
+    padding: 19px;
+    font-size: 22px;
+    color:white;
+    
 }
+
+.btn-productdetails
+{
+    background: transparent;
+    font-size: 22px;
+    border: 1px solid white;
+    color:white;
+    width: 100%;
+}
+
+/* lich hen */
+.btnlichhen
+{
+    background: transparent;
+    font-size: 15px;
+    border: 1px solid white;
+    color:white;
+    width: 100%;
+}
+
+/* khach hang */
+.khachhang .container-fluid
+{
+    background: rgba(0, 0, 0, 0.5);
+    padding-top: 80px;
+
+}
+
+.khachhang label
+{
+    color: white;
+}
+
+.khachhang form
+{
+   background: rgba(0, 0, 0, 0.5);
+   border: 1px solid white;
+}
+
+.khachhang .form-control 
+{
+    background: rgba(0, 0, 0, 0.7);
+    height: 40px;
+    padding: 19px;
+    font-size: 22px;
+    color:white;
+    
+}
+
+.btn-khachhang
+{
+    background: transparent;
+    font-size: 15px;
+    border: 1px solid white;
+    color:white;
+    width: 100%;
+}
+
+
+/* Thong ke */
+.thongke canvas
+{
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Toc */
+.toc .thumbnail
+{
+    max-width:20%;
+}
+
+.toc .container-fluid
+{
+    background: rgba(0, 0, 0, 0.5);
+    margin-top: 90px;
+
+}
+
+.toc label
+{
+    color: white;
+}
+
+.toc form
+{
+   background: rgba(0, 0, 0, 0.5);
+   border: 1px solid white;
+}
+
+.toc .form-control 
+{
+    background: rgba(0, 0, 0, 0.7);
+    height: 40px;
+    padding: 19px;
+    font-size: 22px;
+    color:white;
+    
+}
+
+.btntoc
+{
+    background: transparent;
+    font-size: 22px;
+    border: 1px solid white;
+    color:white;
+    width: 100%;
+}
+

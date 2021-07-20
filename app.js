@@ -6,6 +6,11 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var trangchuRouter = require('./routes/trangchu');
+var lichhenRouter = require('./routes/lichhen');
+var khachhangRouter = require('./routes/khachhang');
+var thongkeRouter = require('./routes/thongke');
+var tocRouter = require('./routes/toc');
 
 var productsRouter = require('./routes/products');
 require('dotenv').config();
@@ -38,7 +43,11 @@ app.use('/', indexRouter);
 // http://localhost:3000/products
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
-
+app.use('/trangchu', trangchuRouter);
+app.use('/lichhen', lichhenRouter);
+app.use('/khachhang', khachhangRouter);
+app.use('/thongke', thongkeRouter);
+app.use('/toc', tocRouter);
 
 
 

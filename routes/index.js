@@ -7,7 +7,7 @@ var authentication = require('../middle/authenfication');
 /* GET index page. */
 // http://localhost:3000
 router.get('/', [authentication.checkLogin],function (req, res, next) {
-      res.redirect('/products');
+      res.redirect('/trangchu');
 });
 
 router.get('/login', function(req, res, next){
@@ -24,7 +24,7 @@ router.post('/', function (req, res, next) {
   if (check) {
     const acess_token = jwt.sign({ id: 1, username: 'admin' }, process.env.JWT_SECRET_KEY);
     req.session.acess_token = acess_token;
-    res.redirect('/products');
+    res.redirect('/trangchu');
   }
   else {
     res.redirect('/');

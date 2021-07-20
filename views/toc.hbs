@@ -1,0 +1,200 @@
+<nav class="navbar navbar-expand-sm navbar-dark fixed-top ">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="/trangchu">
+        <img src="./images/logo-footer.png" alt="logo" style="width:90%;">
+    </a>
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="/lichhen"> <span class="fas fa-calendar"></span> Lịch hẹn</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/khachhang"><span class="fas fa-id-card"></span> Khách hàng</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/thongke"><span class="fas fa-donate"></span> Thống kê</a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="/toc"><span class="fas fa-folder-open"></span> Quản lý tóc</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/products"><span class="fas fa-paperclip"></span> Quản lý sản phẩm</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/logout"><span class="fas fa-user-secret"></span> Đăng xuất</a>
+        </li>
+    </ul>
+
+
+</nav>
+
+<div class="toc">
+  <div class="container-fluid">
+    <div class="container">
+      <h1 class="text-light text-center pt-3 pb-5">QUẢN LÝ TÓC</h1>
+
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <form action="/action_page.php" class="p-4">
+            <h4 class="text-light display-4 mb-3"><small>Tạo mới kiểu tóc</small></h4>
+            <div class="form-group">
+              <label for="idtoc">ID tóc:</label>
+              <input type="text" class="form-control" placeholder="Enter ID tóc" id="idtoc">
+            </div>
+            <div class="form-group">
+              <label for="kieutoc">Kiểu tóc:</label>
+              <input type="text" class="form-control" placeholder="Enter kiểu tóc" id="kieutoc">
+            </div>
+
+            <div class="form-group custom-file mb-3">
+              <label for="fileanh">Ảnh mẫu:</label>
+              <input class="text-light" type="file" id="fileanh" name="fileanh">
+            </div>
+
+            <div class="form-group">
+              <label for="gioitinh">Giới tính: </label>
+              <select name="gioitinh" class="custom-select mb-3">
+                <option value="Nam" selected>Nam</option>
+                <option value="Nữ">Nữ</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btntoc">Tạo</button>
+          </form>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+
+
+    <div class="row my-5">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+            <thead class="thead-dark">
+              <tr>
+                <th>#</th>
+                <th>Mã Tóc</th>
+                <th>Kiểu tóc</th>
+                <th>Ảnh tóc</th>
+                <th>Giới tính</th>
+              </tr>
+            </thead>
+            <tbody class="table-light" id="myTable">
+              <tr data-h data-toggle="modal" data-target="#SuaTocModal">
+                <td>1</td>
+                <td>Mo01M</td>
+                <td>Mohican nam mùa hè</td>
+                <td><img class="thumbnail" src="./img/mohican.jpg"></td>
+                <td>Nam</td>
+              </tr>
+
+              <tr data-toggle="modal" data-target="#SuaTocModal">
+                <td>2</td>
+                <td>La01M</td>
+                <td>Layer nam</td>
+                <td>
+                  <img class="thumbnail" src="./img/layer.jpg">
+                </td>
+                <td>Nam</td>
+              </tr>
+
+              <tr data-toggle="modal" data-target="#SuaTocModal">
+                <td>3</td>
+                <td>La02F</td>
+                <td>Layer nữ ngắn</td>   
+                <td>  <img class="thumbnail" src="./img/layernungan.png"></td>
+                <td>Nữ</td>
+              </tr>
+
+              
+              <tr data-toggle="modal" data-target="#SuaTocModal">
+                <td>4</td>
+                <td>Un01M</td>
+                <td>Undercut nam</td>
+                <td>
+                  <img class="thumbnail" src="./img/undercut.jpg">
+                </td>
+                <td>nam</td>
+              </tr>
+
+              <tr data-toggle="modal" data-target="#SuaTocModal">
+                <td>5</td>
+                <td>Un02F</td>
+                <td>Undercut nữ</td>
+                <td><img class="thumbnail" src="./img/undercutnu.jpg"></td>
+               
+                <td>Nữ</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="SuaTocModal">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background: rgba(77, 76, 76, 0.8);border: 1px solid white;">
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="/action_page.php" class="p-4">
+          <h4 class="text-light display-4 mb-3"><small>Sửa thông tin</small></h4>
+          <div class="form-group">
+            <label for="idtoc">ID tóc:</label>
+            <input type="text" class="form-control" placeholder="Enter ID tóc" id="idtoc">
+          </div>
+          <div class="form-group">
+            <label for="kieutoc">Kiểu tóc:</label>
+            <input type="text" class="form-control" placeholder="Enter kiểu tóc" id="kieutoc">
+          </div>
+
+          <div class="form-group custom-file mb-3">
+            <label for="fileanh">Ảnh mẫu:</label>
+            <input class="text-light" type="file" id="fileanh" name="fileanh">
+          </div>
+
+          <div class="form-group">
+            <label for="gioitinh">Giới tính: </label>
+            <select name="gioitinh" class="custom-select mb-3">
+              <option value="Nam" selected>Nam</option>
+              <option value="Nữ">Nữ</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success btntoc">Sửa</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btntoc" data-dismiss="modal">Xóa</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Script table toc -->
+<script>
+  $(document).ready(function () {
+    $("#myInput").on("keyup", function () {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+</script>
+<!-- End table toc -->

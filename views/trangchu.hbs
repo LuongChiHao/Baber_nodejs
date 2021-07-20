@@ -1,0 +1,222 @@
+<nav class="navbar navbar-expand-sm navbar-dark ">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="trangchu.html">
+        <img src="./images/logo-footer.png" alt="logo" style="width:90%;">
+    </a>
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="/lichhen"> <span class="fas fa-calendar"></span> Lịch hẹn</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/khachhang"><span class="fas fa-id-card"></span> Khách hàng</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/thongke"><span class="fas fa-donate"></span> Thống kê</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/toc"><span class="fas fa-folder-open"></span> Quản lý tóc</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/products"><span class="fas fa-paperclip"></span> Quản lý sản phẩm</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/logout"><span class="fas fa-user-secret"></span> Đăng xuất</a>
+        </li>
+    </ul>
+
+
+</nav>
+<div class="trangchu">
+    <div class="container-fluid">
+        <h1 class="text-center text-light">Trang chủ</h1>
+        <div class="row my-5 align-items-center justify-content-between">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title" id="cardtitle">
+                            5
+                        </div>
+                        <div class="card-text text-center text-secondary">
+                            ĐƠN LỊCH HẸN
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title" id="cardtitle">
+                            5
+                        </div>
+                        <div class="card-text text-secondary text-center">
+                            KHÁCH HÀNG
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title" id="cardtitle">
+                            5
+                        </div>
+                        <div class="card-text text-center text-secondary">
+                            KIỂU MẪU TÓC
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-9 bg-dark mx-4">
+                <h2 class="text-light text-center my-3">Lịch hẹn gần đây</h2>
+                <div class="table-responsive">
+                    <table class="table table-dark table-striped table-hover">
+                        <input class="form-control" id="myInputLH" type="text" placeholder="Search..">
+                        <thead>
+                            <tr>
+                                <th>Mã lịch hẹn</th>
+                                <th>Ngày đặt</th>
+                                <th>Ngày kết thúc</th>
+                                <th>Mã tóc</th>
+                                <th>User name</th>
+                                <th>Giới tính</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền (VND)</th>
+                                <th>Tình trạng</th>
+                                <th>Tương tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myTableLH">
+                            <tr data-h>
+                                <td>01072101</td>
+                                <td>01/07/2021</td>
+                                <td>03/07/2021</td>
+                                <td>La01M</td>
+                                <td>lylienkiet</td>
+                                <td>Nam</td>
+                                <td>2</td>
+                                <td>200,000</td>
+                                <td>Hoành thành</td>
+                                <td><button class="btn-light btn btntrangchu" data-toggle="modal"
+                                        data-target="#XoaLHModal">Xóa</button></td>
+                            </tr>
+
+                            <tr>
+                                <td>01072101</td>
+                                <td>01/07/2021</td>
+                                <td>03/07/2021</td>
+                                <td>La01M</td>
+                                <td>lylienkiet</td>
+                                <td>Nam</td>
+                                <td>2</td>
+                                <td>200,000</td>
+                                <td>Hoành thành</td>
+                                <td><button class="btn-light btn btntrangchu" data-toggle="modal"
+                                        data-target="#XoaLHModal">Xóa</button></td>
+                            </tr>
+
+                            <tr>
+                                <td>01072101</td>
+                                <td>01/07/2021</td>
+                                <td>03/07/2021</td>
+                                <td>La01M</td>
+                                <td>lylienkiet</td>
+                                <td>Nam</td>
+                                <td>2</td>
+                                <td>200,000</td>
+                                <td>Hoành thành</td>
+                                <td><button class="btn-light btn btntrangchu" data-toggle="modal"
+                                        data-target="#XoaLHModal">Xóa</button></td>
+
+                            </tr>
+
+
+                            <tr>
+                                <td>01072101</td>
+                                <td>01/07/2021</td>
+                                <td>03/07/2021</td>
+                                <td>La01M</td>
+                                <td>lylienkiet</td>
+                                <td>Nam</td>
+                                <td>2</td>
+                                <td>200,000</td>
+                                <td>Hoành thành</td>
+                                <td><button class="btn-light btn btntrangchu" data-toggle="modal"
+                                        data-target="#XoaLHModal">Xóa</button></td>
+
+                            </tr>
+
+                            <tr>
+                                <td>01072101</td>
+                                <td>01/07/2021</td>
+                                <td>03/07/2021</td>
+                                <td>La01M</td>
+                                <td>lylienkiet</td>
+                                <td>Nam</td>
+                                <td>2</td>
+                                <td>200,000</td>
+                                <td>Hoành thành</td>
+                                <td><button class="btn btn-light btntrangchu" data-toggle="modal"
+                                        data-target="#XoaLHModal">Xóa</button></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="col-md-2 mx-4 d-block justify-content-center bg-dark">
+                <h2 class="text-light text-center my-3">Lối tắt</h2>
+                <a href="./lichhen.html" class="btn btn-success my-5 py-4" style="width:100%">Lịch hẹn</a>
+                <a href="./khachhang.html" class="btn btn-danger mb-5 py-4" style="width:100%">Khách hàng</a>
+                <a href="./thongke.html" class="btn btn-primary mb-5 py-4" style="width:100%">Thống kê</a>
+                <a href="./toc.html" class="btn btn-warning mb-5 py-4" style="width:100%">Quản lý mẫu tóc</a>
+                <a href="/products" class="btn btn-light py-4" style="width:100%">Quản lý sản phẩm</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script table khách hàng -->
+<script>
+  $(document).ready(function () {
+    $("#myInputLH").on("keyup", function () {
+      var value = $(this).val().toLowerCase();
+      $("#myTableLH tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+</script>
+<!-- End table khách hàng -->
+
+<div class="modal fade" id="XoaLHModal">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background: rgba(77, 76, 76, 0.8);border: 1px solid white;">
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="/action_page.php" class="p-4">
+          <h3 class="text-light mb-3">Xóa khách hàng này?</h3>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-trangchu" data-dismiss="modal">Xóa</button>
+        <button type="button" class="btn btn-primary btn-trangchu" data-dismiss="modal">Không</button>
+      </div>
+
+    </div>
+  </div>
+</div>

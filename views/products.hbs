@@ -1,23 +1,27 @@
 <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
     <!-- Brand/logo -->
-    <a class="navbar-brand" href="#">
-        <img src="images/logo-footer.png" alt="logo" style="width:90%;">
+    <a class="navbar-brand" href="/trangchu">
+        <img src="./images/logo-footer.png" alt="logo" style="width:90%;">
     </a>
 
     <!-- Links -->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="#"> <span class="fas fa-calendar"></span> Lịch hẹn</a>
+            <a class="nav-link" href="/lichhen"> <span class="fas fa-calendar"></span> Lịch hẹn</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><span class="fas fa-id-card"></span> Khách hàng</a>
+            <a class="nav-link" href="/khachhang"><span class="fas fa-id-card"></span> Khách hàng</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><span class="fas fa-donate"></span> Thống kê</a>
+            <a class="nav-link" href="/thongke"><span class="fas fa-donate"></span> Thống kê</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/toc"><span class="fas fa-folder-open"></span> Quản lý tóc</a>
         </li>
 
         <li class="nav-item active">
-            <a class="nav-link" href="#"><span class="fas fa-folder-open"></span> Quản lý tóc</a>
+            <a class="nav-link" href="/products"><span class="fas fa-paperclip"></span> Quản lý sản phẩm</a>
         </li>
 
         <li class="nav-item">
@@ -28,6 +32,7 @@
 
 </nav>
 
+<div class="products">
 <div class="container-fluid mt-5 pt-5">
     <h1 class="text-light text-center pt-5 pb-5">Products Manager</h1>
     <div class="row">
@@ -56,8 +61,8 @@
                         <td>{{this.cost}}</td>
                         <td class="center">{{this.date}}</td>
                         <td>{{this.brand}}</td>
-                        <td><a href="/products/edit/{{this.id}}" class="btn btn-primary">Edit</a></td>
-                        <td><a href="/products/delete/{{this.id}}" class="btn btn-primary">Delete</a></td>
+                        <td><a href="/products/edit/{{this.id}}" class="btn btn-primary btn-products">Edit</a></td>
+                        <td><a href="/products/delete/{{this.id}}" class="btn btn-danger btn-products">Delete</a></td>
                     </tr>
                     {{/each}}
                 </tbody>
@@ -68,7 +73,7 @@
 
     </div>
 </div>
-
+</div>
 <!-- Script table sp -->
 <script>
   $(document).ready(function () {
