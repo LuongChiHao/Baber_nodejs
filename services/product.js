@@ -1,8 +1,12 @@
-const products=[
+var products=[
     {id: 1, name: "Điện thoại", cost: 2000000, date: "1999-02-17", brand: "LG"},
     {id: 2, name: "Máy tính bảng", cost: 20000000, date: "1999-02-17", brand: "Samsung"},
     {id: 3, name: "Macbook", cost: 30000000, date: "1999-02-17", brand: "Apple"},
-    {id: 4, name: "Laptop", cost: 20000000, date: "1999-02-17", brand: "ASUS"}
+    {id: 4, name: "Laptop", cost: 20000000, date: "1999-02-17", brand: "ASUS"},
+    {id: 5, name: "Điện thoại", cost: 2000000, date: "1999-02-17", brand: "LG"},
+    {id: 6, name: "Máy tính bảng", cost: 20000000, date: "1999-02-17", brand: "Samsung"},
+    {id: 7, name: "Macbook", cost: 30000000, date: "1999-02-17", brand: "Apple"},
+    {id: 8, name: "Laptop", cost: 20000000, date: "1999-02-17", brand: "ASUS"}
 ];
 
 exports.get = function getAllProducts(){
@@ -15,6 +19,5 @@ exports.getOne = function getOneProduct(id){
 }
 
 exports.delete = (id) => {
-        product = products.filter((pd) => pd.id != id);
-        return product;
+        products = products.filter((pd) => pd.id != id);
 }

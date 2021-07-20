@@ -61,8 +61,8 @@
                         <td>{{this.cost}}</td>
                         <td class="center">{{this.date}}</td>
                         <td>{{this.brand}}</td>
-                        <td><a href="/products/edit/{{this.id}}" class="btn btn-primary btn-products">Edit</a></td>
-                        <td><a href="/products/delete/{{this.id}}" class="btn btn-danger btn-products">Delete</a></td>
+                        <td><button class="btn btn-link text-light" onclick="onEdit({{this.id}})" >Edit</button></td>
+                        <td><button class="btn btn-link text-light" onclick="onDelete({{this.id}})" >Delete</button></td>
                     </tr>
                     {{/each}}
                 </tbody>
@@ -86,3 +86,34 @@
   });
 </script>
 <!-- End table sp -->
+
+{{!-- edit --}}
+<script>
+    const onDelete = async (id) =>{
+        const url = 'http://localhost:3000/products/delete/'+id;
+        const option = {
+            method: 'delete',
+            header: {
+                'Content-Type': 'application/json'
+            }
+        }
+        try
+        {
+            await fetchAPI(url, option);
+            window.location.href="/products";
+        }
+        catch(e)
+        {
+            console.log('Delete err: ',e)
+        }
+    }
+
+    const fetchAPI = async (url, option) =>{
+        const res = await fetch(url, option)
+        return res.json();
+    }
+
+    const onEdit = id => {
+        window.location.href="/products/edit/"+ id;
+    }
+</script>
