@@ -143,11 +143,33 @@ nav
     width: 100%;
 }
 
+.creat-form
+{
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid white;
+  margin-bottom: 50px;
+}
+
+.creat-form label
+{
+  color: white;
+}
+
+.creat-form .form-control 
+{
+    background: rgba(78, 78, 78, 0.7);
+    height: 40px;
+    padding: 19px;
+    font-size: 22px;
+    color:white;
+    
+}
+
 
 /* products details */
 .productdetails .form-control 
 {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(78, 78, 78, 0.7);
     height: 40px;
     padding: 19px;
     font-size: 22px;

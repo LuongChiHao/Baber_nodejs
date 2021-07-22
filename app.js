@@ -21,6 +21,27 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+var hbs = require('hbs');
+hbs.registerHelper('sosanh', function(a,b,t){
+  return a.toString() == b.toString();
+})
+
+hbs.registerHelper('formatDate', function(a,t){
+  let date = new Date(a);
+  let month = date.getMonth()+1;
+  month = month.toString().length== 1 ? '0'+month : month;
+  let year = date.getFullYear();
+  let day = date.getDate().toString();
+  day = day.toString().length == 1 ? '0'+day : day;
+  return day+ '-' + month + '-' + year;
+})
+
+hbs.registerHelper('getBrandName', function(brandid,brand,t){
+  return brand.filter(item => item.id == brandid)[0].name;
+})
+
+
+
 
 app.use(logger('dev'));
 app.use(express.json());

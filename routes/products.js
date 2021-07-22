@@ -1,22 +1,30 @@
 var express = require('express');
 var router = express.Router();
 const authenticate = require("../middle/authenfication");
-var productsController = require('../controllers/products')
+var productsController = require('../controllers/products');
+var brandController = require('../controllers/brand');
 
 
 // Get students list
 router.get('/', [authenticate.checkLogin],function(req, res, next) {
     const products = productsController.get();
-    res.render('products', { products: products });
+    const brand = brandController.get();
+    res.render('products', { products: products, brand: brand });
   });
 
 // getOneProduct
 router.get('/edit/:id', [authenticate.checkLogin], function(req, res, next){
   const {id} = req.params; 
   const product = productsController.getOne(id);
-  console.log(id);
-  console.log(product);
-   res.render('productDetail', {product: product});
+  const brand = brandController.get();
+  res.render('productDetail', {product: product, brand: brand});
+})
+
+// Update
+router.post('/update/:id', [authenticate.checkLogin], function(req, res, next){
+  let{params, body} = req;
+  productsController.update(params, body);
+  res.redirect('/products');
 })
 
 // Delete

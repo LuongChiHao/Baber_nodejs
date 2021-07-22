@@ -34,7 +34,43 @@
 
 <div class="products">
 <div class="container-fluid mt-5 pt-5">
-    <h1 class="text-light text-center pt-5 pb-5">Products Manager</h1>
+    <div class="container">
+      <h1 class="text-light text-center pt-5 pb-5">QUẢN LÝ SẢN PHẨM</h1>
+
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 creat-form">
+          <form action="/action_page.php" class="p-4">
+            <h4 class="text-light display-4 mb-3"><small>Tạo mới sản phẩm</small></h4>
+            <div class="form-group">
+              <label for="namesp">Tên sản phẩm: </label>
+              <input name="name" type="text" class="form-control" placeholder="Enter tên sản phẩm" id="namesp">
+            </div>
+            <div class="form-group">
+              <label for="costsp">Giá sản phẩm:</label>
+              <input name="cost" type="number" class="form-control" placeholder="Enter giá sản phẩm" id="costsp">
+            </div>
+
+            <div class="form-group">
+              <label for="datesp">Ngày nhập: </label>
+              <input name="date" class=" form-control" type="date" id="datesp">
+            </div>
+
+            <div class="form-group">
+              <label for="brandsp">Nhãn hàng: </label>
+              <select name="brand" class="form-control" style="padding:0 0.75rem">
+                {{#each brand}}
+                        <option value="{{this.id}}">{{this.name}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btntoc">Tạo</button>
+          </form>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+    
     <div class="row">
         <div class="col-md-2">
 
@@ -50,7 +86,7 @@
                         <th>cost</th>
                         <th>date</th>
                         <th>brand</th>
-                        <th></th>
+                        <th>Option</th>
                     </tr>
                 </thead>
                 <tbody id="myTable">
@@ -59,10 +95,12 @@
                         <td>{{this.id}}</td>
                         <td>{{this.name}}</td>
                         <td>{{this.cost}}</td>
-                        <td class="center">{{this.date}}</td>
-                        <td>{{this.brand}}</td>
-                        <td><button class="btn btn-link text-light" onclick="onEdit({{this.id}})" >Edit</button></td>
-                        <td><button class="btn btn-link text-light" onclick="onDelete({{this.id}})" >Delete</button></td>
+                        <td class="center">{{formatDate this.date}}</td>
+                        <td>{{getBrandName this.brand ../brand}}</td>
+                        <td>
+                            <button class="btn btn-link text-light" onclick="onEdit({{this.id}})" >Edit</button>
+                            <button class="btn btn-link text-light" onclick="onDelete({{this.id}})" >Delete</button>
+                        </td>
                     </tr>
                     {{/each}}
                 </tbody>
