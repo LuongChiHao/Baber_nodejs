@@ -1,8 +1,8 @@
 var products=[
-    {id: 1, name: "Điện thoại", cost: 2000000, date: "1999-02-17", brand: 0},
-    {id: 2, name: "Máy tính bảng", cost: 20000000, date: "1999-02-17", brand: 1},
-    {id: 3, name: "Macbook", cost: 30000000, date: "1999-02-17", brand: 2},
-    {id: 4, name: "Laptop", cost: 20000000, date: "1999-02-17", brand: 3},
+    {id: 1, name: "Điện thoại", cost: 2000000, date: "1999-02-17", brand: 0, img: ""},
+    {id: 2, name: "Máy tính bảng", cost: 20000000, date: "1999-02-17", brand: 1, img: ""},
+    {id: 3, name: "Macbook", cost: 30000000, date: "1999-02-17", brand: 2, img: ""},
+    {id: 4, name: "Laptop", cost: 20000000, date: "1999-02-17", brand: 3, img: ""},
 ];
 
 exports.get = function getAllProducts(){
@@ -20,10 +20,16 @@ exports.delete = (id) => {
 
 exports.update = (pd) =>{
     products = products.map(item => item.id == pd.id ? 
-        {...item,   name: pd.name,
+        {...item,   
+                    name: pd.name,
                     cost: pd.cost,
                     date: pd.date,
-                    brand: pd.brand} :item)
+                    brand: pd.brand
+        } :item)
+}
+
+exports.insert = (pd) =>{
+    products.push(pd);
 }
 
 

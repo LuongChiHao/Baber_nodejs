@@ -20,6 +20,13 @@ router.get('/edit/:id', [authenticate.checkLogin], function(req, res, next){
   res.render('productDetail', {product: product, brand: brand});
 })
 
+// Insert
+router.post('/insert', [authenticate.checkLogin], function(req, res, next){
+  let{body} = req;
+  productsController.insert(body);
+  res.redirect('/products');
+})
+
 // Update
 router.post('/update/:id', [authenticate.checkLogin], function(req, res, next){
   let{params, body} = req;
