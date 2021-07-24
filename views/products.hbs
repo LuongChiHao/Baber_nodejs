@@ -170,9 +170,9 @@
 </script>
 
 <script>
-//Lay hinh anh
-
- const onchangeImg() =>{
+  //Lay hinh anh
+  
+ const onchangeImg =() =>{
     var file = document.getElementById('img').files[0];
     var imgsrc = document.getElementById('imgsrc');
     var reader = new FileReader();
@@ -180,33 +180,21 @@
       imgsrc.src = e.target.result;
     }
    reader.readAsDataURL(file)
+
+   
+
+   
  }
 
-  const uploadImg = (input) =>{
-    //chuyen thanh base 64
 
+</script>
 
-    //upload sever
-      const url = 'http://localhost:3000/products/delete/'+id;
-        const option = {
-            method: 'delete',
-            header: {
-                'Content-Type': 'application/json'
-            }
-        }
-        try
-        {
-            await fetchAPI(url, option);
-            window.location.href="/products";
-        }
-        catch(e)
-        {
-            console.log('Delete err: ',e)
-        }
-  }
+<script>
 
 
 
+
+//Validate name
   let isNameValid = isDate = false;
   const validateName = () =>{
     let val = document.getElementById('name').value;
@@ -222,6 +210,7 @@
     validateForm();
   }
 
+//Validate day
   const validateDate = () =>{
     let val = document.getElementById('date').value;
     let _date = new Date(val);
