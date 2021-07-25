@@ -1,43 +1,43 @@
 <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
-    <!-- Brand/logo -->
-    <a class="navbar-brand" href="/trangchu">
-        <img src="./images/logo-footer.png" alt="logo" style="width:90%;">
-    </a>
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="/trangchu">
+    <img src="./images/logo-footer.png" alt="logo" style="width:90%;">
+  </a>
 
-    <!-- Links -->
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" href="/lichhen"> <span class="fas fa-calendar"></span> Lịch hẹn</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/khachhang"><span class="fas fa-id-card"></span> Khách hàng</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/thongke"><span class="fas fa-donate"></span> Thống kê</a>
-        </li>
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/lichhen"> <span class="fas fa-calendar"></span> Lịch hẹn</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/khachhang"><span class="fas fa-id-card"></span> Khách hàng</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/thongke"><span class="fas fa-donate"></span> Thống kê</a>
+    </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="/toc"><span class="fas fa-folder-open"></span> Quản lý tóc</a>
-        </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/toc"><span class="fas fa-folder-open"></span> Quản lý tóc</a>
+    </li>
 
-        <li class="nav-item active">
-            <a class="nav-link" href="/products"><span class="fas fa-paperclip"></span> Quản lý sản phẩm</a>
-        </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="/products"><span class="fas fa-paperclip"></span> Quản lý sản phẩm</a>
+    </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="/logout"><span class="fas fa-user-secret"></span> Đăng xuất</a>
-        </li>
-    </ul>
+    <li class="nav-item">
+      <a class="nav-link" href="/logout"><span class="fas fa-user-secret"></span> Đăng xuất</a>
+    </li>
+  </ul>
 
 
 </nav>
 
 <div class="products">
-<div class="container-fluid mt-5 pt-5">
+  <div class="container-fluid mt-5 pt-5">
     <div class="container">
       <h1 class="text-light text-center pt-5 pb-5">QUẢN LÝ SẢN PHẨM</h1>
 
-{{!-- TAO --}}
+      {{!-- TAO --}}
       <div class="row">
         <div class="col-md-3"></div>
 
@@ -46,11 +46,13 @@
             <h4 class="text-light display-4 mb-3"><small>Tạo mới sản phẩm</small></h4>
             <div class="form-group">
               <label for="namesp">Tên sản phẩm: </label>
-              <input name="name" id="name" onchange="validateName()" type="text" class="form-control" placeholder="Enter tên sản phẩm" id="namesp">
+              <input name="name" id="name" onchange="validateName()" type="text" class="form-control"
+                placeholder="Enter tên sản phẩm" id="namesp">
             </div>
             <div class="form-group">
               <label for="costsp">Giá sản phẩm:</label>
-              <input name="cost" type="number" class="form-control" placeholder="Enter giá sản phẩm" id="costsp">
+              <input name="cost" value="0" id="cost" type="number" onchange="validateCost()" class="form-control"
+                placeholder="Enter giá sản phẩm">
             </div>
 
             <div class="form-group">
@@ -62,7 +64,7 @@
               <label for="brandsp">Nhãn hàng: </label>
               <select name="brand" class="form-control" style="padding:0 0.75rem">
                 {{#each brand}}
-                        <option value="{{this.id}}">{{this.name}}</option>
+                <option value="{{this.id}}">{{this.name}}</option>
                 {{/each}}
               </select>
             </div>
@@ -70,8 +72,8 @@
             <div class="form-group">
               <label for="imgsp">Chọn ảnh: </label>
               <img width="170px" height="170px" id="imgsrc">
-              <input type="hidden" name="img">
-              <input type="file" id="img" onchange="onchangeImg()" class="form-control-file border text-light" >
+              <input type="hidden" name="img" id="imgadd">
+              <input type="file" id="img" onchange="onchangeImg()" class="form-control-file border text-light">
             </div>
             <button type="submit" disabled id="btn-submit" class="btn btn-primary btntoc">Tạo</button>
           </form>
@@ -80,50 +82,49 @@
         <div class="col-md-3"></div>
       </div>
     </div>
-    
 
 
-{{!-- XEM --}}
+    {{!-- XEM --}}
     <div class="row">
-        <div class="col-md-2"></div>
+      <div class="col-md-2"></div>
 
-        <div class="col-md-8">
-            <table class="table table-dark table-striped table-hover">
-                 <input class="form-control" id="myInput" type="text" placeholder="Search..">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>name</th>
-                        <th>cost</th>
-                        <th>date</th>
-                        <th>brand</th>
-                        <th>img</th>
-                        <th>Option</th>
-                    </tr>
-                </thead>
-                <tbody id="myTable">
-                    {{#each products}}
-                    <tr>
-                        <td>{{this.id}}</td>
-                        <td>{{this.name}}</td>
-                        <td>{{this.cost}}</td>
-                        <td class="center">{{formatDate this.date}}</td>
-                        <td>{{getBrandName this.brand ../brand}}</td>
-                        <td class="center"><img src="{{this.img}}"></td>
-                        <td>
-                            <button class="btn btn-link text-light" onclick="onEdit('{{this.id}}')" >Edit</button>
-                            <button class="btn btn-link text-light" onclick="onDelete('{{this.id}}')" >Delete</button>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        </div>
+      <div class="col-md-8">
+        <table class="table table-dark table-striped table-hover">
+          <input class="form-control" id="myInput" type="text" placeholder="Search..">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>name</th>
+              <th>cost</th>
+              <th>date</th>
+              <th>brand</th>
+              <th>img</th>
+              <th>Option</th>
+            </tr>
+          </thead>
+          <tbody id="myTable">
+            {{#each products}}
+            <tr>
+              <td>{{this.id}}</td>
+              <td>{{this.name}}</td>
+              <td>{{this.cost}}</td>
+              <td class="center">{{formatDate this.date}}</td>
+              <td>{{getBrandName this.brand ../brand}}</td>
+              <td class="center"><img src="{{this.img}}"></td>
+              <td>
+                <button class="btn btn-link text-light" onclick="onEdit('{{this.id}}')">Edit</button>
+                <button class="btn btn-link text-light" onclick="onDelete('{{this.id}}')">Delete</button>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
 
-        <div class="col-md-2"></div>
+      <div class="col-md-2"></div>
 
     </div>
-</div>
+  </div>
 </div>
 <!-- Script table sp -->
 <script>
@@ -140,104 +141,148 @@
 
 {{!-- edit --}}
 <script>
-    const onDelete = async (id) =>{
-        const url = 'http://localhost:3000/products/delete/'+id;
-        const option = {
-            method: 'delete',
-            header: {
-                'Content-Type': 'application/json'
-            }
-        }
-        try
-        {
-            await fetchAPI(url, option);
-            window.location.href="/products";
-        }
-        catch(e)
-        {
-            console.log('Delete err: ',e)
-        }
+  const onDelete = async (id) => {
+    const url = 'http://localhost:3000/products/delete/' + id;
+    const option = {
+      method: 'delete',
+      header: {
+        'Content-Type': 'application/json'
+      }
     }
+    try {
+      await fetchAPI(url, option);
+      window.location.href = "/products";
+    }
+    catch (e) {
+      console.log('Delete err: ', e)
+    }
+  }
 
-    const fetchAPI = async (url, option) =>{
-        const res = await fetch(url, option)
-        return res.json();
-    }
+  const fetchAPI = async (url, option) => {
+    const res = await fetch(url, option)
+    return res.json();
+  }
 
-    const onEdit = id => {
-        window.location.href="/products/edit/"+ id;
-    }
+  const onEdit = id => {
+    window.location.href = "/products/edit/" + id;
+  }
 </script>
+
+{{!-- Firebase --}}
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBkPqm6ZuIFHIy8dDazP9P-B315hlqMtRU",
+    authDomain: "nodejsbaber.firebaseapp.com",
+    projectId: "nodejsbaber",
+    storageBucket: "nodejsbaber.appspot.com",
+    messagingSenderId: "1056102080280",
+    appId: "1:1056102080280:web:e5983aafcce09f5035886d"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
 
 <script>
   //Lay hinh anh
-  
- const onchangeImg =() =>{
+  const onchangeImg = () => {
     var file = document.getElementById('img').files[0];
     var imgsrc = document.getElementById('imgsrc');
+    var imgadd = document.getElementById('imgadd');
     var reader = new FileReader();
-    reader.onload = (e) =>{
+    reader.onload= (e) =>{
       imgsrc.src = e.target.result;
     }
-   reader.readAsDataURL(file)
+    reader.readAsDataURL(file);
 
-   
+        const uuid =  () => {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
+      } 
 
-   
- }
+    var storageRef = firebase.storage().ref(uuid());
+    let uploadTask = storageRef.put(file);
+    
+
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+      (snapshot) => { },
+      (error) => { console.log(error) },
+      () => {
+        uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+          console.log(url)
+          imgadd.value = url;
+        })
+      }
+    )
 
 
+
+
+  }
 </script>
 
 <script>
-
-
-
-
-//Validate name
-  let isNameValid = isDate = false;
-  const validateName = () =>{
+  //Validate name
+  let isNameValid = isDate = isCostValid = false;
+  const validateName = () => {
     let val = document.getElementById('name').value;
-    if(!val || val.trim().length==0 || val.trim().length > 100)
-    {
-        alert("Name isvalid");
-        isNameValid = false;
+    if (!val || val.trim().length == 0 || val.trim().length > 100) {
+      alert("Name isvalid");
+      isNameValid = false;
     }
-    else 
-    {
+    else {
       isNameValid = true;
     }
     validateForm();
   }
 
-//Validate day
-  const validateDate = () =>{
+  //Validate cost
+  const validateCost = () => {
+    var val,
+      element = document.getElementById('cost');
+    if (element != null) {
+      val = element.value;
+    }
+    else {
+      val = null;
+    }
+    if (!val || val.trim().length == 0 || val.trim() <= 0) {
+      alert("Cost isvalid");
+      isCostValid = false;
+    }
+    else {
+      isCostValid = true;
+    }
+    validateForm();
+  }
+
+  //Validate day
+  const validateDate = () => {
     let val = document.getElementById('date').value;
     let _date = new Date(val);
 
     let _today = new Date();
-    _today.setHours(0,0,0,0);
+    _today.setHours(0, 0, 0, 0);
 
-    if(!val || _date> _today)
-    {
-        alert("Date isvalid");
-        isDate = false;
+    if (!val || _date > _today) {
+      alert("Date isvalid");
+      isDate = false;
     }
-    else 
-    {
+    else {
       isDate = true;
     }
 
     validateForm();
   }
 
-  const validateForm = () =>{
-    if(!isNameValid || !isDate)
-    {
+  const validateForm = () => {
+    if (!isNameValid || !isDate || !isCostValid) {
       document.getElementById('btn-submit').disabled = true;
     }
-    else 
-    {
+    else {
       document.getElementById('btn-submit').disabled = false;
     }
   }

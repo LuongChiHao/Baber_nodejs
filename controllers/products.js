@@ -13,8 +13,8 @@ exports.delete = (id) =>{
 }
 exports.update = (params, body) =>{
     let {id} = params;
-    let {name, cost, date, brand} = body;
-    productServices.update({id, name, cost, date, brand});
+    let {name, cost, date, brand, img} = body;
+    productServices.update({id, name, cost, date, brand, img});
 }   
 
 exports.insert = (body) =>{
@@ -25,6 +25,7 @@ exports.insert = (body) =>{
         });
       } 
     let id = uuid();
-    let {name, cost, date, brand} = body;
-    productServices.insert({id, name, cost, date, brand});
+    let {name, cost, date, brand, img} = body;
+    console.log("Link", img, "+", name);
+    productServices.insert({id, name, cost, date, brand, img});
 }
