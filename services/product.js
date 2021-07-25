@@ -25,7 +25,7 @@ exports.update = (pd) =>{
                     cost: pd.cost,
                     date: pd.date,
                     brand: pd.brand,
-                    img: pd.img
+                    img: pd.img ? pd.img : item.img
         } :item)
 }
 

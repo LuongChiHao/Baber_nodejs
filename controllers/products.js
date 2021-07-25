@@ -5,6 +5,7 @@ exports.get = () => {
 }
 
 exports.getOne = function(id){
+    console.log(productServices.getOne(id));
     return productServices.getOne(id);
 }
 
