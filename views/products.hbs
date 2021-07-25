@@ -86,9 +86,8 @@
 
     {{!-- XEM --}}
     <div class="row">
-      <div class="col-md-2"></div>
 
-      <div class="col-md-8">
+      <div class="col-md-12">
         <table class="table table-dark table-striped table-hover">
           <input class="form-control" id="myInput" type="text" placeholder="Search..">
           <thead>
@@ -110,7 +109,7 @@
               <td>{{this.cost}}</td>
               <td class="center">{{formatDate this.date}}</td>
               <td>{{getBrandName this.brand ../brand}}</td>
-              <td class="center"><img src="{{this.img}}"></td>
+              <td class="center"><img width="200px" height="100px" src="{{this.img}}"></td>
               <td>
                 <button class="btn btn-link text-light" onclick="onEdit('{{this.id}}')">Edit</button>
                 <button class="btn btn-link text-light" onclick="onDelete('{{this.id}}')">Delete</button>
@@ -121,7 +120,6 @@
         </table>
       </div>
 
-      <div class="col-md-2"></div>
 
     </div>
   </div>
