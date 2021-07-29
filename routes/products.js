@@ -22,9 +22,9 @@ router.get('/edit/:id', [authenticate.checkLogin], function(req, res, next){
 })
 
 // Insert
-router.post('/insert', [authenticate.checkLogin], function(req, res, next){
+router.post('/insert', [authenticate.checkLogin], async function(req, res, next){
   let{body} = req;
-  productsController.insert(body);
+ await productsController.insert(body);
   res.redirect('/products');
 })
 
