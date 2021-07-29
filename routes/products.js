@@ -40,11 +40,9 @@ router.post('/update/:id', [authenticate.checkLogin, upload.single('img')], func
 })
 
 // Delete
-router.delete('/delete/:id', [authenticate.checkLogin], function(req, res, next){
+router.delete('/delete/:id', [authenticate.checkLogin],async function(req, res, next){
   const {id} = req.params; 
-  productsController.delete(id);
-  
-  // Redirect 
+  await productsController.delete(id);
   res.json({result: true});
 })
 

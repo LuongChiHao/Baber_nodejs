@@ -16,8 +16,8 @@ exports.getOne = function getOneProduct(id){
     return product;
 }
 
-exports.delete = (id) => {
-    products = products.filter((pd) => pd.id != id);
+exports.delete =async (id) => {
+   await productModel.remove({_id: id});
 }
 
 exports.update = (pd) =>{

@@ -9,8 +9,8 @@ exports.getOne = function(id){
     return productServices.getOne(id);
 }
 
-exports.delete = (id) =>{
-    productServices.delete(id);
+exports.delete =async (id) =>{
+   await  productServices.delete(id);
 }
 exports.update = (params, body) =>{
     let {id} = params;
