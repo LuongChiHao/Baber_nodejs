@@ -1,5 +1,5 @@
 var brandService = require('../services/brand');
 
-exports.get = () => {
-    return brandService.get();
+exports.get = async () => {
+    return await brandService.get();
 }

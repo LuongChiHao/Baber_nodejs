@@ -1,7 +1,7 @@
 const productServices = require('../services/product');
 
-exports.get = () => {
-    return productServices.get();
+exports.get =async () => {
+    return await productServices.get();
 }
 
 exports.getOne = function(id){
@@ -14,8 +14,8 @@ exports.delete = (id) =>{
 }
 exports.update = (params, body) =>{
     let {id} = params;
-    let {name, cost, date, brand, img} = body;
-    productServices.update({id, name, cost, date, brand, img});
+    let {name, price, des, brand, img} = body;
+    productServices.update({id, name, price, des, brand, img});
 }   
 
 exports.insert = (body) =>{
@@ -26,7 +26,7 @@ exports.insert = (body) =>{
         });
       } 
     let id = uuid();
-    let {name, cost, date, brand, img} = body;
+    let {name, price, des, brand, img} = body;
     console.log("Link", img, "+", name);
-    productServices.insert({id, name, cost, date, brand, img});
+    productServices.insert({id, name, price, des, brand, img});
 }

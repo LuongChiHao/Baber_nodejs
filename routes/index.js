@@ -17,9 +17,9 @@ router.get('/login', function(req, res, next){
 
 /* GET login page. */
 // http://localhost:3000
-router.post('/', function (req, res, next) {
+router.post('/',async function (req, res, next) {
   const { username, password } = req.body;
-  const check = userController.login(username, password);
+  const check =await userController.login(username, password);
   console.log(check);
   if (check) {
     const acess_token = jwt.sign({ id: 1, username: 'admin' }, process.env.JWT_SECRET_KEY);
@@ -27,6 +27,7 @@ router.post('/', function (req, res, next) {
     res.redirect('/trangchu');
   }
   else {
+    console.log("Sai tài khoản mk")
     res.redirect('/');
   }
 });

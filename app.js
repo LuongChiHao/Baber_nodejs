@@ -11,12 +11,23 @@ var lichhenRouter = require('./routes/lichhen');
 var khachhangRouter = require('./routes/khachhang');
 var thongkeRouter = require('./routes/thongke');
 var tocRouter = require('./routes/toc');
-
 var productsRouter = require('./routes/products');
+
 require('dotenv').config();
 var session = require('express-session');
+var mongoose = require('mongoose');
+require('./models/user_model');
+require('./models/brand_model');
+require('./models/product_model');
+
+
 
 var app = express();
+mongoose.connect(process.env.MONGODB, {useNewUrlParser: true, useUnifiedTopology: true})
+.then(()=> console.log("DB Connected"))
+.catch((err) => console.log("DB ERROR", err));
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,8 +48,13 @@ hbs.registerHelper('formatDate', function(a,t){
 })
 
 hbs.registerHelper('getBrandName', function(brandid,brand,t){
-  return brand.filter(item => item.id == brandid)[0].name;
+  return brand.filter(item => item._id.toString() == brandid.toString())[0].name;
 })
+
+hbs.registerHelper('stt', function(v,t){
+  return v+1;
+})
+
 
 
 

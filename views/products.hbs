@@ -92,10 +92,10 @@
           <input class="form-control" id="myInput" type="text" placeholder="Search..">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>#</th>
               <th>name</th>
-              <th>cost</th>
-              <th>date</th>
+              <th>price</th>
+              <th>describle</th>
               <th>brand</th>
               <th>img</th>
               <th>Option</th>
@@ -104,15 +104,15 @@
           <tbody id="myTable">
             {{#each products}}
             <tr>
-              <td>{{this.id}}</td>
+              <td>{{stt @index}}</td>
               <td>{{this.name}}</td>
-              <td>{{this.cost}}</td>
-              <td class="center">{{formatDate this.date}}</td>
+              <td>{{this.price}}</td>
+              <td class="center">{{this.des}}</td>
               <td>{{getBrandName this.brand ../brand}}</td>
               <td class="center"><img width="200px" height="100px" src="{{this.img}}"></td>
               <td>
-                <button class="btn btn-link text-light" onclick="onEdit('{{this.id}}')">Edit</button>
-                <button class="btn btn-link text-light" onclick="onDelete('{{this.id}}')">Delete</button>
+                <button class="btn btn-link text-light" onclick="onEdit('{{this._id}}')">Edit</button>
+                <button class="btn btn-link text-light" onclick="onDelete('{{this._id}}')">Delete</button>
               </td>
             </tr>
             {{/each}}

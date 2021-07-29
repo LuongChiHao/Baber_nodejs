@@ -6,9 +6,10 @@ var brandController = require('../controllers/brand');
 var upload = require('../middle/upload');
 
 // Get students list
-router.get('/', [authenticate.checkLogin],function(req, res, next) {
-    const products = productsController.get();
-    const brand = brandController.get();
+router.get('/', [authenticate.checkLogin], async function(req, res, next) {
+    const products = await productsController.get();
+    const brand = await brandController.get();
+    console.log(">>>>>>>>>>", brand, products);
     res.render('products', { products: products, brand: brand });
   });
 

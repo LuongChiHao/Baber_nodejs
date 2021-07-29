@@ -1,11 +1,11 @@
-const users = [
-    {id: 1, username: 'admin', password: "123"},
-    {id: 2, username: 'manager', password:"123"}
-]
+const userModel = require('../models/user_model');
+
 
 
 // Select * from users where username = ?
-exports.login = function login(username){
-    const user = users.filter(us => us.username == username)[0] || null
+exports.login = async function login(username){
+    // select username password from users where username = username
+    const user = await userModel.findOne({username: username}, 'username password');
+    console.log("TK",user, username);
     return user;
 }
